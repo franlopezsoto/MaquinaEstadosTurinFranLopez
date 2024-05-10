@@ -1,4 +1,5 @@
 package Projecto;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -28,8 +29,7 @@ public class SwingInterface extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 Program haltingProgram = new HaltingProgram();
-                boolean result = haltChecker.willHalt(haltingProgram);
-                resultLabel.setText("Halting Program: " + (result ? "Will halt" : "Will not halt"));
+                haltingProgram.run();
                 reverser.reverse(haltingProgram);
             }
         });
@@ -38,8 +38,7 @@ public class SwingInterface extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 Program nonHaltingProgram = new NonHaltingProgram();
-                boolean result = haltChecker.willHalt(nonHaltingProgram);
-                resultLabel.setText("Non-Halting Program: " + (result ? "Will halt" : "Will not halt"));
+                nonHaltingProgram.run();
                 reverser.reverse(nonHaltingProgram);
             }
         });

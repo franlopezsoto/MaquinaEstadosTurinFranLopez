@@ -1,20 +1,23 @@
 package Projecto;
 
+
 public class Reverser {
-    private HaltChecker haltChecker;
+    private HaltChecker check;
 
     public Reverser() {
-        haltChecker = new HaltChecker();
+        this.check = new HaltChecker();
     }
 
     public void reverse(Program program) {
-        if (haltChecker.check(program)) {
-            NonHaltingProgram nonHaltingProgram = new NonHaltingProgram();
-            nonHaltingProgram.run();
+        if (check.check(program)) {
+            program.run();
+            if (program.isFinished()) {
+                System.out.println("The program has halted.");
+            } else {
+                System.out.println("The program has not halted.");
+            }
         } else {
-            HaltingProgram haltingProgram = new HaltingProgram();
-            haltingProgram.run();
+            System.out.println("The program is not a HaltingProgram.");
         }
     }
 }
-

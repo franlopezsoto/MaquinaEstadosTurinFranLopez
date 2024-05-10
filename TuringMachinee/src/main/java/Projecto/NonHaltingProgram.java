@@ -1,12 +1,15 @@
 package Projecto;
 
+import javax.swing.*;
+
 public class NonHaltingProgram implements Program {
     private int num = 1;
     private boolean isFinished = false;
 
     @Override
     public void run() {
-        while (num <= 100) { // se detendrá después de 100 iteraciones
+        JOptionPane.showMessageDialog(null, "Non-Halting Program: This is a count up and will not halt because it has no limitations");
+        while (true) { // bucle infinito
             System.out.println(num);
             num++;
             try {
@@ -15,7 +18,6 @@ public class NonHaltingProgram implements Program {
                 e.printStackTrace();
             }
         }
-        isFinished = true;
     }
 
     public boolean isFinished() {
